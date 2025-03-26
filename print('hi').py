@@ -21,7 +21,7 @@ while t < 6:
     R = ((float(df.iloc[0,t]) - float(df.iloc[0,t-1]))/(float(df.iloc[0,t]) + float(df.iloc[0,t-1])))
     R2 = R**2
     print(R2)
-    intens = float(intens) * (1-R2)**2 * np.exp(float(df.iloc[1,t])*float(df.iloc[2,t])*-1)
+    intens = float(intens) * (1-R2) * np.exp(float(df.iloc[1,t])*float(df.iloc[2,t])*-1)
     print(intens)
     t = t + 1
 
