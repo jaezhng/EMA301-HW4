@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 intens = 10
 t = 1
+#setting up basic datatable
 props = ['Index of Refraction, n', 'Absorption Coefficient (m^-1)', 'Thickness (m)']
 a = [
     ["1", "1.489", "1.333", "1.460","1.489","1"],
@@ -11,19 +12,11 @@ a = [
 ]
 df = pd.DataFrame(a, index=props, columns= ['Air','PMMA', 'Water', 'New Polymer','PMMA','Air'])
 print(df)
+#checks indexing system
 value = df.iloc[0,0]
 print(value)
 float(df.iloc[0,0]) + float(df.iloc[0,1])
-#g = df['Air']
-#b = df['PMMA']
-#c = df['Water']
-#f = df['New Polymer']
-#print(g[props[1]])
-#g1 = int(g[props[1]])
-#g2 = int(g[props[0]])
-#result = g2 + g1
-#print(result)
-#t represents number of trials
+#runs a loop to calculate transmitted light between each medium interface
 while t < 6:
     R = ((float(df.iloc[0,t]) - float(df.iloc[0,t-1]))/(float(df.iloc[0,t]) + float(df.iloc[0,t-1])))
     R2 = R**2
